@@ -83,7 +83,7 @@ namespace SQLconstructor.Classes
             result += get_uniq();
             result += get_default();
             result += get_foreign();
-            return result;
+            return result.Trim();
         }
         #region Configuration
         private string get_name()
