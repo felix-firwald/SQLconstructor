@@ -56,9 +56,17 @@ namespace SQLconstructor.Classes
             string start = $"CREATE TABLE {Name} (\n";
             string definition = "";
             string end = "\n)";
+            int len = fields.Count;
+            int counter = 1;
             foreach (Field field in fields)
             {
-                definition += field.ToString();
+                string last_char = ",\n";
+                if (counter == len) {
+                    last_char = "\n";
+                }
+                counter++;
+                definition += field.GetText();
+                definition += last_char;
             }
             string result = start + definition + end;
             return result;
