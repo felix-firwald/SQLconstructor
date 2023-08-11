@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SQLconstructor.Classes
 {
@@ -34,6 +32,11 @@ namespace SQLconstructor.Classes
         public Table(string name) 
         {
             this.Name = name;
+            ListOfTables.AddTable(this);
+        }
+        ~Table()
+        {
+            ListOfTables.RemoveTable(this);
         }
         #region Public
         public string GetCommandOfCreate()
@@ -43,6 +46,14 @@ namespace SQLconstructor.Classes
                 throw new TableException($"No fields detected in the table {this.Name}");
             }
             return createCommand();
+        }
+        public void WriteToFile(string path)
+        {
+            if (this.fields == null)
+            {
+                return;
+            }
+            File.AppendAllText(path, createCommand());
         }
         public override string ToString()
         {

@@ -48,7 +48,14 @@
   <ItemGroup>
     <Compile Include="Classes\ColorCommand.cs" />
     <Compile Include="Classes\Field.cs" />
+    <Compile Include="Classes\ListOfTables.cs" />
     <Compile Include="Classes\Table.cs" />
+    <Compile Include="Forms\CreateTableWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CreateTableWindow.Designer.cs">
+      <DependentUpon>CreateTableWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,12 +64,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\ControlPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ControlPanel.Designer.cs">
+      <DependentUpon>ControlPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\FinalCode.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\FinalCode.Designer.cs">
       <DependentUpon>FinalCode.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\CreateTableWindow.resx">
+      <DependentUpon>CreateTableWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -72,6 +91,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\ControlPanel.resx">
+      <DependentUpon>ControlPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FinalCode.resx">
       <DependentUpon>FinalCode.cs</DependentUpon>
     </EmbeddedResource>

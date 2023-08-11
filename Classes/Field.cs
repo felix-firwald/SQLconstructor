@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,7 +43,9 @@ namespace SQLconstructor.Classes
     }
     public class Field
     {
+        #region Procedural
         private bool validated;
+        #endregion
         private string name;
         private SQLDataType type;
         private bool isNull;
@@ -85,6 +88,7 @@ namespace SQLconstructor.Classes
             result += get_foreign();
             return result.Trim();
         }
+        
         #region Configuration
         private string get_name()
         {
