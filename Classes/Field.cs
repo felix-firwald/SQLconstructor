@@ -80,6 +80,10 @@ namespace SQLconstructor.Classes
             this.lengthOf = length;
             Validate();
         }
+        public override string ToString()
+        {
+            return this.name;
+        }
         public string GetText()
         {
             if (!this.validated)
@@ -130,7 +134,23 @@ namespace SQLconstructor.Classes
         {
             if (this.defaultValue != null)
             {
-                return CommonFunctools.GetWithSpace($"DEFAULT {this.defaultValue}");
+                string c = "'";
+                switch (this.type)
+                {
+                    case SQLDataType.BOOL:
+                    case SQLDataType.BIT:
+                    case SQLDataType.TINYINT:
+                    case SQLDataType.SMALLINT:
+                    case SQLDataType.BIGINT:
+                    case SQLDataType.INT:
+                    case SQLDataType.FLOAT: 
+                    case SQLDataType.DOUBLE:
+                    case SQLDataType.DECIMAL:
+                        c = "";
+                        break;
+                    default: break;
+                }
+                return CommonFunctools.GetWithSpace($"DEFAULT {c}{this.defaultValue}{c}");
             }
             return "";
         }

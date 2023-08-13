@@ -38,36 +38,40 @@
             this.inputDefault = new System.Windows.Forms.TextBox();
             this.inputFKTable = new System.Windows.Forms.ComboBox();
             this.inputFKField = new System.Windows.Forms.ComboBox();
+            this.inputSize = new System.Windows.Forms.NumericUpDown();
             this.tableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inputSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableMain
             // 
-            this.tableMain.ColumnCount = 8;
+            this.tableMain.ColumnCount = 9;
             this.tableMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
             this.tableMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableMain.Controls.Add(this.checkboxUnique, 3, 0);
+            this.tableMain.Controls.Add(this.checkboxUnique, 4, 0);
             this.tableMain.Controls.Add(this.inputName, 0, 0);
             this.tableMain.Controls.Add(this.inputType, 1, 0);
-            this.tableMain.Controls.Add(this.checkboxNull, 2, 0);
-            this.tableMain.Controls.Add(this.checkboxFK, 5, 0);
-            this.tableMain.Controls.Add(this.inputDefault, 4, 0);
-            this.tableMain.Controls.Add(this.inputFKTable, 6, 0);
-            this.tableMain.Controls.Add(this.inputFKField, 7, 0);
+            this.tableMain.Controls.Add(this.checkboxNull, 3, 0);
+            this.tableMain.Controls.Add(this.checkboxFK, 6, 0);
+            this.tableMain.Controls.Add(this.inputDefault, 5, 0);
+            this.tableMain.Controls.Add(this.inputFKTable, 7, 0);
+            this.tableMain.Controls.Add(this.inputFKField, 8, 0);
+            this.tableMain.Controls.Add(this.inputSize, 2, 0);
             this.tableMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableMain.Location = new System.Drawing.Point(0, 0);
             this.tableMain.Name = "tableMain";
             this.tableMain.RowCount = 1;
             this.tableMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableMain.Size = new System.Drawing.Size(950, 30);
+            this.tableMain.Size = new System.Drawing.Size(1100, 25);
             this.tableMain.TabIndex = 0;
             // 
             // checkboxUnique
@@ -76,10 +80,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.checkboxUnique.AutoSize = true;
-            this.checkboxUnique.Location = new System.Drawing.Point(363, 3);
+            this.checkboxUnique.Location = new System.Drawing.Point(455, 6);
+            this.checkboxUnique.Margin = new System.Windows.Forms.Padding(35, 6, 6, 6);
             this.checkboxUnique.Name = "checkboxUnique";
             this.checkboxUnique.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkboxUnique.Size = new System.Drawing.Size(74, 24);
+            this.checkboxUnique.Size = new System.Drawing.Size(39, 13);
             this.checkboxUnique.TabIndex = 3;
             this.checkboxUnique.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkboxUnique.UseVisualStyleBackColor = true;
@@ -102,7 +107,7 @@
             this.inputType.FormattingEnabled = true;
             this.inputType.Location = new System.Drawing.Point(153, 3);
             this.inputType.Name = "inputType";
-            this.inputType.Size = new System.Drawing.Size(144, 21);
+            this.inputType.Size = new System.Drawing.Size(114, 21);
             this.inputType.TabIndex = 1;
             // 
             // checkboxNull
@@ -111,10 +116,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.checkboxNull.AutoSize = true;
-            this.checkboxNull.Location = new System.Drawing.Point(303, 3);
+            this.checkboxNull.Location = new System.Drawing.Point(390, 6);
+            this.checkboxNull.Margin = new System.Windows.Forms.Padding(20, 6, 6, 6);
             this.checkboxNull.Name = "checkboxNull";
             this.checkboxNull.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkboxNull.Size = new System.Drawing.Size(54, 24);
+            this.checkboxNull.Size = new System.Drawing.Size(24, 13);
             this.checkboxNull.TabIndex = 2;
             this.checkboxNull.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkboxNull.UseVisualStyleBackColor = true;
@@ -126,10 +132,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.checkboxFK.AutoSize = true;
             this.checkboxFK.Enabled = false;
-            this.checkboxFK.Location = new System.Drawing.Point(593, 3);
+            this.checkboxFK.Location = new System.Drawing.Point(700, 6);
+            this.checkboxFK.Margin = new System.Windows.Forms.Padding(40, 6, 6, 6);
             this.checkboxFK.Name = "checkboxFK";
             this.checkboxFK.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkboxFK.Size = new System.Drawing.Size(94, 24);
+            this.checkboxFK.Size = new System.Drawing.Size(54, 13);
             this.checkboxFK.TabIndex = 4;
             this.checkboxFK.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkboxFK.UseVisualStyleBackColor = true;
@@ -138,9 +145,9 @@
             // inputDefault
             // 
             this.inputDefault.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.inputDefault.Location = new System.Drawing.Point(443, 3);
+            this.inputDefault.Location = new System.Drawing.Point(503, 3);
             this.inputDefault.Name = "inputDefault";
-            this.inputDefault.Size = new System.Drawing.Size(144, 20);
+            this.inputDefault.Size = new System.Drawing.Size(154, 20);
             this.inputDefault.TabIndex = 5;
             this.inputDefault.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -151,9 +158,9 @@
             this.inputFKTable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.inputFKTable.Enabled = false;
             this.inputFKTable.FormattingEnabled = true;
-            this.inputFKTable.Location = new System.Drawing.Point(693, 3);
+            this.inputFKTable.Location = new System.Drawing.Point(763, 3);
             this.inputFKTable.Name = "inputFKTable";
-            this.inputFKTable.Size = new System.Drawing.Size(124, 21);
+            this.inputFKTable.Size = new System.Drawing.Size(164, 21);
             this.inputFKTable.TabIndex = 6;
             this.inputFKTable.SelectedIndexChanged += new System.EventHandler(this.inputFKTable_SelectedIndexChanged);
             // 
@@ -164,10 +171,38 @@
             this.inputFKField.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.inputFKField.Enabled = false;
             this.inputFKField.FormattingEnabled = true;
-            this.inputFKField.Location = new System.Drawing.Point(823, 3);
+            this.inputFKField.Location = new System.Drawing.Point(933, 3);
             this.inputFKField.Name = "inputFKField";
-            this.inputFKField.Size = new System.Drawing.Size(124, 21);
+            this.inputFKField.Size = new System.Drawing.Size(164, 21);
             this.inputFKField.TabIndex = 7;
+            this.inputFKField.SelectedIndexChanged += new System.EventHandler(this.inputFKField_SelectedIndexChanged);
+            // 
+            // inputSize
+            // 
+            this.inputSize.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.inputSize.Location = new System.Drawing.Point(273, 3);
+            this.inputSize.Maximum = new decimal(new int[] {
+            512,
+            0,
+            0,
+            0});
+            this.inputSize.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.inputSize.Name = "inputSize";
+            this.inputSize.Size = new System.Drawing.Size(94, 20);
+            this.inputSize.TabIndex = 8;
+            this.inputSize.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
             // 
             // tableBindingSource
             // 
@@ -179,9 +214,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableMain);
             this.Name = "FieldItemCreate";
-            this.Size = new System.Drawing.Size(950, 30);
+            this.Size = new System.Drawing.Size(1100, 25);
             this.tableMain.ResumeLayout(false);
             this.tableMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inputSize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -199,5 +235,6 @@
         private System.Windows.Forms.ComboBox inputFKTable;
         private System.Windows.Forms.ComboBox inputFKField;
         private System.Windows.Forms.BindingSource tableBindingSource;
+        private System.Windows.Forms.NumericUpDown inputSize;
     }
 }

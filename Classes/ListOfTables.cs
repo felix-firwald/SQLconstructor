@@ -48,7 +48,7 @@ namespace SQLconstructor.Classes
             foreach (Table table in tables)
             {
                 result += table.GetCommandOfCreate();
-                result += ";\n";
+                result += ";\n\n";
             }
             return result;
         }

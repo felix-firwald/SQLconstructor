@@ -62,6 +62,7 @@ namespace SQLconstructor.UserControls
                 this.inputFKField.Items.Add(field.name);
             }
             this.inputFKField.SelectedIndex = 0;
+            UpdateType();
         }
 
         private void checkboxFK_CheckedChanged(object sender, EventArgs e)
@@ -87,6 +88,17 @@ namespace SQLconstructor.UserControls
         {
             this.inputFKField.Items.Clear();
             GetFieldsOfTableForFK();
+        }
+
+        private void inputFKField_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateType();
+        }
+        private void UpdateType()
+        {
+            Table table = ListOfTables.GetTableByName(this.inputFKTable.SelectedItem.ToString());
+            Field field = table.GetFieldByName(this.inputFKField.SelectedItem.ToString());
+            this.inputType.SelectedItem = field.type.ToString();
         }
     }
 }

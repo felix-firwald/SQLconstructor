@@ -35,10 +35,10 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
             this.flowLayout = new System.Windows.Forms.FlowLayoutPanel();
-            this.fieldLabelCreate1 = new SQLconstructor.UserControls.FieldLabelCreate();
-            this.fieldItemCreate1 = new SQLconstructor.UserControls.FieldItemCreate();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonAddField = new System.Windows.Forms.Button();
+            this.fieldLabelCreate1 = new SQLconstructor.UserControls.FieldLabelCreate();
+            this.fieldItemCreate1 = new SQLconstructor.UserControls.FieldItemCreate();
             this.tableMain.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -62,7 +62,7 @@
             this.tableMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableMain.Size = new System.Drawing.Size(584, 461);
+            this.tableMain.Size = new System.Drawing.Size(684, 461);
             this.tableMain.TabIndex = 0;
             // 
             // groupBox1
@@ -71,18 +71,21 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(578, 54);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBox1.Size = new System.Drawing.Size(678, 54);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Введите имя таблицы";
             // 
             // inputName
             // 
+            this.inputName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inputName.Font = new System.Drawing.Font("SF UI Text", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputName.Location = new System.Drawing.Point(6, 19);
+            this.inputName.Margin = new System.Windows.Forms.Padding(12);
             this.inputName.MaxLength = 16;
             this.inputName.Name = "inputName";
-            this.inputName.Size = new System.Drawing.Size(563, 21);
+            this.inputName.Size = new System.Drawing.Size(666, 21);
             this.inputName.TabIndex = 0;
             this.inputName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -91,17 +94,19 @@
             this.panel1.Controls.Add(this.buttonClose);
             this.panel1.Controls.Add(this.buttonOk);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 414);
+            this.panel1.Location = new System.Drawing.Point(14, 425);
+            this.panel1.Margin = new System.Windows.Forms.Padding(14);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(578, 44);
+            this.panel1.Size = new System.Drawing.Size(656, 22);
             this.panel1.TabIndex = 1;
             // 
             // buttonClose
             // 
             this.buttonClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonClose.Location = new System.Drawing.Point(395, 12);
+            this.buttonClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonClose.Location = new System.Drawing.Point(482, 0);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(174, 23);
+            this.buttonClose.Size = new System.Drawing.Size(174, 22);
             this.buttonClose.TabIndex = 1;
             this.buttonClose.Text = "Закрыть";
             this.buttonClose.UseVisualStyleBackColor = true;
@@ -110,9 +115,10 @@
             // buttonOk
             // 
             this.buttonOk.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonOk.Location = new System.Drawing.Point(9, 12);
+            this.buttonOk.Dock = System.Windows.Forms.DockStyle.Left;
+            this.buttonOk.Location = new System.Drawing.Point(0, 0);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(174, 23);
+            this.buttonOk.Size = new System.Drawing.Size(174, 22);
             this.buttonOk.TabIndex = 0;
             this.buttonOk.Text = "Создать таблицу";
             this.buttonOk.UseVisualStyleBackColor = true;
@@ -126,51 +132,54 @@
             this.flowLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayout.Location = new System.Drawing.Point(3, 103);
             this.flowLayout.Name = "flowLayout";
-            this.flowLayout.Size = new System.Drawing.Size(578, 305);
+            this.flowLayout.Size = new System.Drawing.Size(678, 305);
             this.flowLayout.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.buttonAddField);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(9, 69);
+            this.panel2.Margin = new System.Windows.Forms.Padding(9);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(666, 22);
+            this.panel2.TabIndex = 3;
+            // 
+            // buttonAddField
+            // 
+            this.buttonAddField.Dock = System.Windows.Forms.DockStyle.Left;
+            this.buttonAddField.Location = new System.Drawing.Point(0, 0);
+            this.buttonAddField.Name = "buttonAddField";
+            this.buttonAddField.Size = new System.Drawing.Size(142, 22);
+            this.buttonAddField.TabIndex = 0;
+            this.buttonAddField.Text = "Добавить поле";
+            this.buttonAddField.UseVisualStyleBackColor = true;
+            this.buttonAddField.Click += new System.EventHandler(this.buttonAddField_Click);
             // 
             // fieldLabelCreate1
             // 
+            this.fieldLabelCreate1.Dock = System.Windows.Forms.DockStyle.Top;
             this.fieldLabelCreate1.Location = new System.Drawing.Point(3, 3);
             this.fieldLabelCreate1.Name = "fieldLabelCreate1";
-            this.fieldLabelCreate1.Size = new System.Drawing.Size(950, 30);
+            this.fieldLabelCreate1.Size = new System.Drawing.Size(1100, 30);
             this.fieldLabelCreate1.TabIndex = 0;
             // 
             // fieldItemCreate1
             // 
             this.fieldItemCreate1.Location = new System.Drawing.Point(3, 39);
             this.fieldItemCreate1.Name = "fieldItemCreate1";
-            this.fieldItemCreate1.Size = new System.Drawing.Size(950, 30);
+            this.fieldItemCreate1.Size = new System.Drawing.Size(1100, 25);
             this.fieldItemCreate1.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.buttonAddField);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 63);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(578, 34);
-            this.panel2.TabIndex = 3;
-            // 
-            // buttonAddField
-            // 
-            this.buttonAddField.Location = new System.Drawing.Point(6, 3);
-            this.buttonAddField.Name = "buttonAddField";
-            this.buttonAddField.Size = new System.Drawing.Size(142, 23);
-            this.buttonAddField.TabIndex = 0;
-            this.buttonAddField.Text = "Добавить поле";
-            this.buttonAddField.UseVisualStyleBackColor = true;
-            this.buttonAddField.Click += new System.EventHandler(this.buttonAddField_Click);
             // 
             // CreateTableWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 461);
+            this.ClientSize = new System.Drawing.Size(684, 461);
             this.ControlBox = false;
             this.Controls.Add(this.tableMain);
-            this.MaximumSize = new System.Drawing.Size(600, 500);
-            this.MinimumSize = new System.Drawing.Size(600, 500);
+            this.MaximumSize = new System.Drawing.Size(1100, 600);
+            this.MinimumSize = new System.Drawing.Size(400, 400);
             this.Name = "CreateTableWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Создание таблицы";

@@ -88,6 +88,12 @@
     <Compile Include="UserControls\FinalCode.Designer.cs">
       <DependentUpon>FinalCode.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\TreeViewOfTables.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\TreeViewOfTables.Designer.cs">
+      <DependentUpon>TreeViewOfTables.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\CreateTableWindow.resx">
       <DependentUpon>CreateTableWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FinalCode.resx">
       <DependentUpon>FinalCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\TreeViewOfTables.resx">
+      <DependentUpon>TreeViewOfTables.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\SQLconstructor.Classes.Table.datasource" />
     <None Include="Properties\Settings.settings">
