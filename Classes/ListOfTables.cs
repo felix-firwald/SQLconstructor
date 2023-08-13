@@ -13,7 +13,7 @@ namespace SQLconstructor.Classes
     }
     public static class ListOfTables
     {
-        public static List<Table> tables { get; private set; }
+        public static List<Table> tables = new List<Table>();
 
         public static void AddTable(Table table)
         {
@@ -33,6 +33,24 @@ namespace SQLconstructor.Classes
                 }
             }
             throw new TableNotFound($"A table with name \"{name}\" not found");
+        }
+        public static bool NotEmpty()
+        {
+            if (tables.Count == 0)
+            {
+                return false;
+            }
+            return true;
+        }
+        public static string GetRequestForTables()
+        {
+            string result = "";
+            foreach (Table table in tables)
+            {
+                result += table.GetCommandOfCreate();
+                result += ";\n";
+            }
+            return result;
         }
     }
 }

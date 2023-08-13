@@ -70,6 +70,18 @@
     <Compile Include="UserControls\ControlPanel.Designer.cs">
       <DependentUpon>ControlPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\FieldItemCreate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FieldItemCreate.Designer.cs">
+      <DependentUpon>FieldItemCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FieldLabelCreate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FieldLabelCreate.Designer.cs">
+      <DependentUpon>FieldLabelCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\FinalCode.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -94,9 +106,16 @@
     <EmbeddedResource Include="UserControls\ControlPanel.resx">
       <DependentUpon>ControlPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FieldItemCreate.resx">
+      <DependentUpon>FieldItemCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FieldLabelCreate.resx">
+      <DependentUpon>FieldLabelCreate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FinalCode.resx">
       <DependentUpon>FinalCode.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\SQLconstructor.Classes.Table.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -32,6 +32,7 @@ namespace SQLconstructor.Classes
         public Table(string name) 
         {
             this.Name = name;
+            this.fields = new List<Field>();
             ListOfTables.AddTable(this);
         }
         ~Table()
@@ -39,6 +40,22 @@ namespace SQLconstructor.Classes
             ListOfTables.RemoveTable(this);
         }
         #region Public
+        public void AddField(Field field) 
+        {
+            this.fields.Add(field);
+        }
+        public Field GetFieldByName(string name)
+        {
+            foreach (Field f in fields)
+            {
+                if (f.name == name)
+                {
+                    return f;
+                }
+            }
+            throw new FieldNotFound($"The field with name \"{name}\" not found in table \"{this.Name}\"");
+        }
+
         public string GetCommandOfCreate()
         {
             if (this.fields == null)
@@ -76,8 +93,9 @@ namespace SQLconstructor.Classes
                     last_char = "\n";
                 }
                 counter++;
-                definition += field.GetText();
-                definition += last_char;
+                definition += $"    {field.GetText()}{last_char}";
+                //definition += field.GetText();
+                //definition += last_char;
             }
             string result = start + definition + end;
             return result;

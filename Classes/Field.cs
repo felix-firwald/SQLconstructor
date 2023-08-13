@@ -16,6 +16,13 @@ namespace SQLconstructor.Classes
 
         }
     }
+    public class FieldNotFound : Exception
+    {
+        public FieldNotFound(string message) : base()
+        {
+
+        }
+    }
 
     public enum SQLDataType
     {
@@ -46,14 +53,14 @@ namespace SQLconstructor.Classes
         #region Procedural
         private bool validated;
         #endregion
-        private string name;
-        private SQLDataType type;
-        private bool isNull;
-        private bool isUnique;
-        private string defaultValue;
-        private Table fkTable;
-        private Field fkField;
-        private int lengthOf;
+        public string name { get; private set; }
+        public SQLDataType type { get; private set; }
+        public bool isNull { get; private set; }
+        public bool isUnique { get; private set; }
+        public string defaultValue { get; private set; }
+        public Table fkTable { get; private set; }
+        public Field fkField { get; private set; }
+        public int lengthOf { get; private set; }
 
         public Field(
             string name, SQLDataType dataType,
@@ -80,21 +87,21 @@ namespace SQLconstructor.Classes
                 return $"-- {this.name} will not be constructed as long as there are errors in its config";
             }
             string result = "";
-            result += get_name();
-            result += get_type();
-            result += get_null();
-            result += get_uniq();
-            result += get_default();
-            result += get_foreign();
+            result += ws_get_name();
+            result += ws_get_type();
+            result += ws_get_null();
+            result += ws_get_uniq();
+            result += ws_get_default();
+            result += ws_get_foreign();
             return result.Trim();
         }
         
         #region Configuration
-        private string get_name()
+        private string ws_get_name()
         {
             return CommonFunctools.GetWithSpace(this.name);
         }
-        private string get_type()
+        private string ws_get_type()
         {
             string result = this.type.ToString();
             if (this.lengthOf > -1)
@@ -103,7 +110,7 @@ namespace SQLconstructor.Classes
             }
             return CommonFunctools.GetWithSpace(result);
         }
-        private string get_null()
+        private string ws_get_null()
         {
             if (!this.isNull)
             {
@@ -111,7 +118,7 @@ namespace SQLconstructor.Classes
             }
             return "";
         }
-        private string get_uniq()
+        private string ws_get_uniq()
         {
             if (this.isUnique)
             {
@@ -119,15 +126,15 @@ namespace SQLconstructor.Classes
             }
             return "";
         }
-        private string get_default()
+        private string ws_get_default()
         {
             if (this.defaultValue != null)
             {
-                return CommonFunctools.GetWithSpace(this.name);
+                return CommonFunctools.GetWithSpace($"DEFAULT {this.defaultValue}");
             }
             return "";
         }
-        private string get_foreign()
+        private string ws_get_foreign()
         {
             if (this.fkTable != null)
             {
@@ -161,9 +168,12 @@ namespace SQLconstructor.Classes
         }
         private void checkUniqAndNull()
         {
-            if (this.isUnique == true || this.isNull == true)
+            if (this.isUnique)
             {
-                throw new FieldException($"Wrong configuration: UNIQUE={this.isUnique}, NULL={this.isNull}");
+                if (this.isNull)
+                {
+                    throw new FieldException($"Wrong configuration: UNIQUE={this.isUnique}, NULL={this.isNull}");
+                }
             }
         }
         private void checkForeign() 
@@ -178,10 +188,11 @@ namespace SQLconstructor.Classes
 
         private void checkDefault()
         {
-            if (this.defaultValue != null)
+            if (this.defaultValue != null && this.defaultValue != "")
             {
-                string exceptMessage = $"Invalid default value for {this.name}:\n";
+                
                 string val = this.defaultValue;
+                string exceptMessage = $"Неверное значение по умолчанию {this.name}={val}:\n";
                 try
                 {
                     switch (type)
@@ -213,7 +224,8 @@ namespace SQLconstructor.Classes
                 }
                 catch (Exception ex)
                 {
-                    throw new FieldException($"{exceptMessage}{ex}");
+                    MessageBox.Show($"{exceptMessage}{ex}");
+                    //throw new FieldException($"{exceptMessage}{ex}");
                 }
             }
             return;
