@@ -1,14 +1,15 @@
 ﻿
 using SQLconstructor.Classes;
-using System.Collections.Generic;
 using System;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using SQLconstructor.Forms;
 
 namespace SQLconstructor.UserControls
 {
     public partial class FieldItemCreate : UserControl
     {
+        private bool removed = false;
+        private readonly Field initialField;
         public FieldItemCreate()
         {
             InitializeComponent();
@@ -18,8 +19,28 @@ namespace SQLconstructor.UserControls
                 this.checkboxFK.Enabled = true;
             }
         }
+        public FieldItemCreate(Field field)
+        {
+            InitializeComponent();
+            this.initialField = field;
+            GetTypes();
+            if (ListOfTables.NotEmpty())
+            {
+                this.checkboxFK.Enabled = true;
+            }
+            this.inputName.Text = field.name;
+            this.inputType.Text = field.type.ToString();
+            this.checkboxNull.Checked = field.isNull;
+            this.checkboxUnique.Checked = field.isUnique;
+            this.inputDefault.Text = field.defaultValue;
+
+        }
         public Field GetField()
         {
+            if (this.removed) 
+            {
+                return null;
+            }
             string name = this.inputName.Text;
             SQLDataType type = (SQLDataType)Enum.Parse(typeof(SQLDataType), this.inputType.Text);
             bool isNull = this.checkboxNull.Checked;
@@ -36,7 +57,8 @@ namespace SQLconstructor.UserControls
                 fkTable = ListOfTables.GetTableByName(this.inputFKTable.SelectedItem.ToString());
                 fkField = fkTable.GetFieldByName(this.inputFKField.SelectedItem.ToString());
             }
-            return new Field(name, type, isNull, isUniq, defaultValue, fkTable, fkField);
+            return new Field(name, type, isNull, isUniq, defaultValue, fkTable, fkField, (int)this.inputSize.Value);
+            
         }
         private void GetTypes()
         {
@@ -99,6 +121,12 @@ namespace SQLconstructor.UserControls
             Table table = ListOfTables.GetTableByName(this.inputFKTable.SelectedItem.ToString());
             Field field = table.GetFieldByName(this.inputFKField.SelectedItem.ToString());
             this.inputType.SelectedItem = field.type.ToString();
+        }
+
+        private void buttonRemove_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.removed = true;
         }
     }
 }

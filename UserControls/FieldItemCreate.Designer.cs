@@ -39,6 +39,7 @@
             this.inputFKTable = new System.Windows.Forms.ComboBox();
             this.inputFKField = new System.Windows.Forms.ComboBox();
             this.inputSize = new System.Windows.Forms.NumericUpDown();
+            this.buttonRemove = new FontAwesome.Sharp.IconButton();
             this.tableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inputSize)).BeginInit();
@@ -47,8 +48,9 @@
             // 
             // tableMain
             // 
-            this.tableMain.ColumnCount = 9;
-            this.tableMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableMain.ColumnCount = 10;
+            this.tableMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
             this.tableMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
@@ -57,15 +59,16 @@
             this.tableMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableMain.Controls.Add(this.checkboxUnique, 4, 0);
-            this.tableMain.Controls.Add(this.inputName, 0, 0);
-            this.tableMain.Controls.Add(this.inputType, 1, 0);
-            this.tableMain.Controls.Add(this.checkboxNull, 3, 0);
-            this.tableMain.Controls.Add(this.checkboxFK, 6, 0);
-            this.tableMain.Controls.Add(this.inputDefault, 5, 0);
-            this.tableMain.Controls.Add(this.inputFKTable, 7, 0);
-            this.tableMain.Controls.Add(this.inputFKField, 8, 0);
-            this.tableMain.Controls.Add(this.inputSize, 2, 0);
+            this.tableMain.Controls.Add(this.checkboxUnique, 5, 0);
+            this.tableMain.Controls.Add(this.inputName, 1, 0);
+            this.tableMain.Controls.Add(this.inputType, 2, 0);
+            this.tableMain.Controls.Add(this.checkboxNull, 4, 0);
+            this.tableMain.Controls.Add(this.checkboxFK, 7, 0);
+            this.tableMain.Controls.Add(this.inputDefault, 6, 0);
+            this.tableMain.Controls.Add(this.inputFKTable, 8, 0);
+            this.tableMain.Controls.Add(this.inputFKField, 9, 0);
+            this.tableMain.Controls.Add(this.inputSize, 3, 0);
+            this.tableMain.Controls.Add(this.buttonRemove, 0, 0);
             this.tableMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableMain.Location = new System.Drawing.Point(0, 0);
             this.tableMain.Name = "tableMain";
@@ -80,6 +83,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.checkboxUnique.AutoSize = true;
+            this.checkboxUnique.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkboxUnique.Location = new System.Drawing.Point(455, 6);
             this.checkboxUnique.Margin = new System.Windows.Forms.Padding(35, 6, 6, 6);
             this.checkboxUnique.Name = "checkboxUnique";
@@ -92,10 +96,10 @@
             // inputName
             // 
             this.inputName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.inputName.Location = new System.Drawing.Point(3, 3);
+            this.inputName.Location = new System.Drawing.Point(28, 3);
             this.inputName.MaxLength = 16;
             this.inputName.Name = "inputName";
-            this.inputName.Size = new System.Drawing.Size(144, 20);
+            this.inputName.Size = new System.Drawing.Size(119, 20);
             this.inputName.TabIndex = 0;
             this.inputName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -116,6 +120,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.checkboxNull.AutoSize = true;
+            this.checkboxNull.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkboxNull.Location = new System.Drawing.Point(390, 6);
             this.checkboxNull.Margin = new System.Windows.Forms.Padding(20, 6, 6, 6);
             this.checkboxNull.Name = "checkboxNull";
@@ -131,6 +136,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.checkboxFK.AutoSize = true;
+            this.checkboxFK.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkboxFK.Enabled = false;
             this.checkboxFK.Location = new System.Drawing.Point(700, 6);
             this.checkboxFK.Margin = new System.Windows.Forms.Padding(40, 6, 6, 6);
@@ -204,6 +210,23 @@
             0,
             -2147483648});
             // 
+            // buttonRemove
+            // 
+            this.buttonRemove.BackColor = System.Drawing.Color.Red;
+            this.buttonRemove.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRemove.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.buttonRemove.IconColor = System.Drawing.Color.White;
+            this.buttonRemove.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.buttonRemove.IconSize = 15;
+            this.buttonRemove.Location = new System.Drawing.Point(3, 3);
+            this.buttonRemove.Name = "buttonRemove";
+            this.buttonRemove.Size = new System.Drawing.Size(19, 19);
+            this.buttonRemove.TabIndex = 9;
+            this.buttonRemove.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.buttonRemove.UseVisualStyleBackColor = false;
+            this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
+            // 
             // tableBindingSource
             // 
             this.tableBindingSource.DataSource = typeof(SQLconstructor.Classes.Table);
@@ -236,5 +259,6 @@
         private System.Windows.Forms.ComboBox inputFKField;
         private System.Windows.Forms.BindingSource tableBindingSource;
         private System.Windows.Forms.NumericUpDown inputSize;
+        private FontAwesome.Sharp.IconButton buttonRemove;
     }
 }

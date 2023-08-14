@@ -1,29 +1,45 @@
 ﻿using SQLconstructor.Classes;
 using SQLconstructor.UserControls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.CodeDom;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace SQLconstructor.Forms
 {
+    public enum TableWindowType
+    {
+        Create,
+        Edit
+    }
     public partial class CreateTableWindow : Form
     {
         Table resultedTable;
+        TableWindowType typeOfWindow;
+        private readonly string initialTableName;
         public CreateTableWindow()
         {
             InitializeComponent();
+            typeOfWindow = TableWindowType.Create;
         }
+        public CreateTableWindow(Table table)
+        {
+            InitializeComponent();
+            this.Text = $"Редактирование таблицы {table.Name}";
+            this.inputName.Text = table.Name;
+            this.initialTableName = table.Name;
+            typeOfWindow = TableWindowType.Edit;
+            // УДАЛИТЬ лишнее поле которое указано первым в форме!
+            this.flowLayout.Controls.RemoveByKey("initialFieldItem");
+            foreach (Field field in table.fields)
+            {
+                this.flowLayout.Controls.Add(new FieldItemCreate(field));
+            }
+        }
+
         #region Events
         private void buttonClose_Click(object sender, EventArgs e)
         {
-            if (this.resultedTable != null)
+            if (this.resultedTable != null || typeOfWindow == TableWindowType.Create)
             {
                 ListOfTables.RemoveTable(this.resultedTable);
             }
@@ -50,21 +66,39 @@ namespace SQLconstructor.Forms
                 MessageBox.Show($"Возникла ошибка!\n{ex}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        #endregion
-        #region Private
-        private void CreateTable(string name)
+        private void buttonAddField_Click(object sender, EventArgs e)
         {
-            this.resultedTable = new Table(name);
-        }
-        private void CreateField(FieldItemCreate fieldItem)
-        {
-            this.resultedTable.AddField(fieldItem.GetField());
+            AddFieldItem();
         }
         #endregion
 
-        private void buttonAddField_Click(object sender, EventArgs e)
+        #region Private
+        private void CreateTable(string name)
+        {
+            if (typeOfWindow == TableWindowType.Create)
+            {
+                this.resultedTable = new Table(name);
+            }
+            else
+            {
+                this.resultedTable = ListOfTables.GetTableByName(this.initialTableName);
+                this.resultedTable.ClearFields();
+            }
+        }
+        private void CreateField(FieldItemCreate fieldItem)
+        {
+            Field field = fieldItem.GetField();
+            if (field != null)
+            {
+                this.resultedTable.AddField(fieldItem.GetField());
+            }
+        }
+        private void AddFieldItem()
         {
             this.flowLayout.Controls.Add(new FieldItemCreate());
         }
+
+        #endregion
+
     }
 }

@@ -44,6 +44,10 @@ namespace SQLconstructor.Classes
         {
             this.fields.Add(field);
         }
+        public void ClearFields()
+        {
+            this.fields = new List<Field>();
+        }
         public Field GetFieldByName(string name)
         {
             foreach (Field f in fields)

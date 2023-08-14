@@ -38,7 +38,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonAddField = new System.Windows.Forms.Button();
             this.fieldLabelCreate1 = new SQLconstructor.UserControls.FieldLabelCreate();
-            this.fieldItemCreate1 = new SQLconstructor.UserControls.FieldItemCreate();
+            this.initialFieldItem = new SQLconstructor.UserControls.FieldItemCreate();
             this.tableMain.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -120,7 +120,7 @@
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(174, 22);
             this.buttonOk.TabIndex = 0;
-            this.buttonOk.Text = "Создать таблицу";
+            this.buttonOk.Text = "Сохранить таблицу";
             this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
@@ -128,7 +128,7 @@
             // 
             this.flowLayout.AutoScroll = true;
             this.flowLayout.Controls.Add(this.fieldLabelCreate1);
-            this.flowLayout.Controls.Add(this.fieldItemCreate1);
+            this.flowLayout.Controls.Add(this.initialFieldItem);
             this.flowLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayout.Location = new System.Drawing.Point(3, 103);
             this.flowLayout.Name = "flowLayout";
@@ -147,6 +147,7 @@
             // 
             // buttonAddField
             // 
+            this.buttonAddField.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonAddField.Dock = System.Windows.Forms.DockStyle.Left;
             this.buttonAddField.Location = new System.Drawing.Point(0, 0);
             this.buttonAddField.Name = "buttonAddField";
@@ -164,12 +165,12 @@
             this.fieldLabelCreate1.Size = new System.Drawing.Size(1100, 30);
             this.fieldLabelCreate1.TabIndex = 0;
             // 
-            // fieldItemCreate1
+            // initialFieldItem
             // 
-            this.fieldItemCreate1.Location = new System.Drawing.Point(3, 39);
-            this.fieldItemCreate1.Name = "fieldItemCreate1";
-            this.fieldItemCreate1.Size = new System.Drawing.Size(1100, 25);
-            this.fieldItemCreate1.TabIndex = 1;
+            this.initialFieldItem.Location = new System.Drawing.Point(3, 39);
+            this.initialFieldItem.Name = "initialFieldItem";
+            this.initialFieldItem.Size = new System.Drawing.Size(1100, 25);
+            this.initialFieldItem.TabIndex = 1;
             // 
             // CreateTableWindow
             // 
@@ -203,7 +204,7 @@
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.FlowLayoutPanel flowLayout;
         private UserControls.FieldLabelCreate fieldLabelCreate1;
-        private UserControls.FieldItemCreate fieldItemCreate1;
+        private UserControls.FieldItemCreate initialFieldItem;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button buttonAddField;
     }

@@ -1,4 +1,5 @@
 ﻿using SQLconstructor.Classes;
+using SQLconstructor.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -51,6 +52,25 @@ namespace SQLconstructor.UserControls
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
             UpdateView();
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            Table table = ListOfTables.GetTableByName(this.treeView.SelectedNode.Text);
+            CreateTableWindow ctw = new CreateTableWindow(table);
+            ctw.ShowDialog();
+        }
+
+        private void treeView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (this.treeView.SelectedNode.Level == 1)
+            {
+                this.buttonEdit.Enabled = true;
+            }
+            else
+            {
+                this.buttonEdit.Enabled = false;
+            }
         }
     }
 }

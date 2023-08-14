@@ -80,6 +80,24 @@ namespace SQLconstructor.Classes
             this.lengthOf = length;
             Validate();
         }
+        public void ChangeProperties(
+            string name, SQLDataType dataType,
+            bool isNull = false, bool isUnique = false,
+            string defaultValue = null,
+            Table foreignKeyTable = null, Field foreignKeyField = null,
+            int length = -1
+        )
+        {
+            this.name = name;
+            this.type = dataType;
+            this.isNull = isNull;
+            this.isUnique = isUnique;
+            this.defaultValue = defaultValue;
+            this.fkTable = foreignKeyTable;
+            this.fkField = foreignKeyField;
+            this.lengthOf = length;
+            Validate();
+        }
         public override string ToString()
         {
             return this.name;
