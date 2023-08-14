@@ -38,9 +38,9 @@ namespace SQLconstructor.Classes
         DOUBLE,
         DECIMAL,
         // строковые
-        CHAR,
-        VARCHAR,
         NVARCHAR,
+        VARCHAR,
+        CHAR,
         TEXT,
         // дата и время
         SMALLDATETIME,

@@ -21,33 +21,31 @@ namespace SQLconstructor.UserControls
         public void UpdateView()
         {
             this.treeView.Nodes.Clear();
-            this.treeView.Nodes.Add(new TreeNode("Database"));
+            TreeNode db = new TreeNode("Database");
+            this.treeView.Nodes.Add(db);
+            
             foreach (Table table in ListOfTables.tables)
             {
-                AddTableToView(table);
+                TreeNode tn = AddTableToView(table);
                 foreach (Field field in table.fields) 
                 {
-                    try
-                    {
-                        AddFieldToView(table, field);
-                    }
-                    catch (Exception ex) 
-                    {
-                        MessageBox.Show($"Возникла ошибка:\n{ex}", "Ошибка дерева");
-                    }
+                    AddFieldToView(tn, field);
                 }
-                
             }
+            db.ExpandAll();
         }
 
-        private void AddTableToView(Table table)
+        private TreeNode AddTableToView(Table table)
         {
-            this.treeView.Nodes[0].Nodes.Add(new TreeNode(table.Name));
+            TreeNode tn = new TreeNode(table.Name);
+            this.treeView.Nodes[0].Nodes.Add(tn);
+            return tn;
         }
 
-        private void AddFieldToView(Table table, Field field)
+        private void AddFieldToView(TreeNode table, Field field)
         {
-            this.treeView.Nodes[0].Nodes[table.Name].Nodes.Add(new TreeNode(field.name));
+            TreeNode tn = table.Nodes.Add(field.name);
+            tn.ToolTipText = $"Тип: {field.type}, NULL: {field.isNull}, Уникальность: {field.isUnique}";
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLconstructor.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +22,19 @@ namespace SQLconstructor.Forms
         {
             CreateTableWindow ctw = new CreateTableWindow();
             ctw.ShowDialog();
+        }
+
+        private void buttonGetTablesFromFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "SQL files (.SQL)|*.sql";
+            ofd.FilterIndex = 0;
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK )
+            {
+                ParseTables pt = new ParseTables(ofd.FileName);
+                pt.Parse();
+            }
+            
         }
     }
 }

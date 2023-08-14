@@ -31,7 +31,7 @@
             this.tableMain = new System.Windows.Forms.TableLayoutPanel();
             this.tableRight = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonGetTablesFromFile = new System.Windows.Forms.Button();
             this.buttonCreateTable = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
@@ -39,8 +39,8 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.finalCode1 = new SQLconstructor.UserControls.FinalCode();
             this.treeViewOfTables1 = new SQLconstructor.UserControls.TreeViewOfTables();
+            this.finalCode1 = new SQLconstructor.UserControls.FinalCode();
             this.tableMain.SuspendLayout();
             this.tableRight.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -84,7 +84,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.buttonGetTablesFromFile);
             this.groupBox1.Controls.Add(this.buttonCreateTable);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
@@ -94,15 +94,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Создание таблицы";
             // 
-            // button2
+            // buttonGetTablesFromFile
             // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Location = new System.Drawing.Point(6, 46);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(216, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Достать таблицу из файла";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonGetTablesFromFile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonGetTablesFromFile.Location = new System.Drawing.Point(6, 46);
+            this.buttonGetTablesFromFile.Name = "buttonGetTablesFromFile";
+            this.buttonGetTablesFromFile.Size = new System.Drawing.Size(216, 23);
+            this.buttonGetTablesFromFile.TabIndex = 1;
+            this.buttonGetTablesFromFile.Text = "Достать таблицу из файла";
+            this.buttonGetTablesFromFile.UseVisualStyleBackColor = true;
+            this.buttonGetTablesFromFile.Click += new System.EventHandler(this.buttonGetTablesFromFile_Click);
             // 
             // buttonCreateTable
             // 
@@ -179,6 +180,14 @@
             this.button5.Text = "Сохранить запросы на создание";
             this.button5.UseVisualStyleBackColor = true;
             // 
+            // treeViewOfTables1
+            // 
+            this.treeViewOfTables1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeViewOfTables1.Location = new System.Drawing.Point(3, 273);
+            this.treeViewOfTables1.Name = "treeViewOfTables1";
+            this.treeViewOfTables1.Size = new System.Drawing.Size(228, 279);
+            this.treeViewOfTables1.TabIndex = 3;
+            // 
             // finalCode1
             // 
             this.finalCode1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
@@ -188,14 +197,6 @@
             this.finalCode1.Padding = new System.Windows.Forms.Padding(5);
             this.finalCode1.Size = new System.Drawing.Size(638, 555);
             this.finalCode1.TabIndex = 1;
-            // 
-            // treeViewOfTables1
-            // 
-            this.treeViewOfTables1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeViewOfTables1.Location = new System.Drawing.Point(3, 273);
-            this.treeViewOfTables1.Name = "treeViewOfTables1";
-            this.treeViewOfTables1.Size = new System.Drawing.Size(228, 279);
-            this.treeViewOfTables1.TabIndex = 3;
             // 
             // MainWindow
             // 
@@ -220,7 +221,7 @@
         private System.Windows.Forms.TableLayoutPanel tableMain;
         private System.Windows.Forms.TableLayoutPanel tableRight;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonGetTablesFromFile;
         private System.Windows.Forms.Button buttonCreateTable;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;

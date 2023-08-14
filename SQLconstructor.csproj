@@ -49,6 +49,8 @@
     <Compile Include="Classes\ColorCommand.cs" />
     <Compile Include="Classes\Field.cs" />
     <Compile Include="Classes\ListOfTables.cs" />
+    <Compile Include="Classes\ParseField.cs" />
+    <Compile Include="Classes\ParseTables.cs" />
     <Compile Include="Classes\Table.cs" />
     <Compile Include="Forms\CreateTableWindow.cs">
       <SubType>Form</SubType>
