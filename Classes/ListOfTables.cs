@@ -13,15 +13,48 @@ namespace SQLconstructor.Classes
     }
     public static class ListOfTables
     {
+        public static string Name { get; private set; }
         public static List<Table> tables = new List<Table>();
+        private static bool NeedUpdateForTree = false;
+        private static bool NeedUpdateForCode = false;
 
+        public static void SetName(string name)
+        {
+            Name = name;
+            SetForNeedUpdate();
+        }
+        public static void SetForNeedUpdate()
+        {
+            NeedUpdateForTree = true; 
+            NeedUpdateForCode = true;
+        }
+        public static bool IsNeedUpdateForCode()
+        {
+            bool result = NeedUpdateForCode;
+            if (result)
+            {
+                NeedUpdateForCode = false;
+            }
+            return result;
+        }
+        public static bool IsNeedUpdateForTree()
+        {
+            bool result = NeedUpdateForTree;
+            if (result)
+            {
+                NeedUpdateForTree = false;
+            }
+            return result;
+        }
         public static void AddTable(Table table)
         {
             tables.Add(table);
+            SetForNeedUpdate();
         }
         public static void RemoveTable(Table table)
         {
             tables.Remove(table);
+            SetForNeedUpdate();
         }
         public static Table GetTableByName(string name)
         {

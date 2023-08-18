@@ -50,6 +50,7 @@ namespace SQLconstructor.Forms
         {
             try
             {
+                SetInputNameToTitle();
                 CreateTable(this.inputName.Text);
                 foreach (Control c in this.flowLayout.Controls) 
                 {
@@ -100,5 +101,16 @@ namespace SQLconstructor.Forms
 
         #endregion
 
+        private void inputName_TextChanged(object sender, EventArgs e)
+        {
+            
+            
+        }
+        private void SetInputNameToTitle()
+        {
+            char[] letters = this.inputName.Text.ToCharArray();
+            letters[0] = char.ToUpper(letters[0]);
+            this.inputName.Text = new string(letters);
+        }
     }
 }

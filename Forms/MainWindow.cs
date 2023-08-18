@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -35,6 +37,19 @@ namespace SQLconstructor.Forms
                 pt.Parse();
             }
             
+        }
+
+        private void buttonSaveCreates_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "SQL files (.SQL)|*.sql";
+            sfd.FileName = "Database_CreateTables.sql";
+            sfd.FilterIndex = 0;
+            if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                File.WriteAllText(sfd.FileName, ListOfTables.GetRequestForTables());
+
+            }
         }
     }
 }

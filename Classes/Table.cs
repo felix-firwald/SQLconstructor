@@ -43,6 +43,7 @@ namespace SQLconstructor.Classes
         public void AddField(Field field) 
         {
             this.fields.Add(field);
+            ListOfTables.SetForNeedUpdate();
         }
         public void ClearFields()
         {

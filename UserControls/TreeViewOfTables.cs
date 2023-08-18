@@ -1,12 +1,6 @@
 ﻿using SQLconstructor.Classes;
 using SQLconstructor.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,15 +8,30 @@ namespace SQLconstructor.UserControls
 {
     public partial class TreeViewOfTables : UserControl
     {
+        public bool AutoUpdating = true;
         public TreeViewOfTables()
         {
             InitializeComponent();
+            AutoUpdate();
+        }
+        private async void AutoUpdate()
+        {
+            while (AutoUpdating)
+            {
+                await Task.Delay(500);
+                Console.WriteLine($"[{DateTime.Now}] checking...");
+                if (ListOfTables.IsNeedUpdateForTree())
+                {
+                    UpdateView();
+                    Console.WriteLine($"\t[{DateTime.Now}] updated!");
+                }
+            }
         }
 
         public void UpdateView()
         {
             this.treeView.Nodes.Clear();
-            TreeNode db = new TreeNode("Database");
+            TreeNode db = new TreeNode(ListOfTables.Name);
             this.treeView.Nodes.Add(db);
             
             foreach (Table table in ListOfTables.tables)

@@ -88,6 +88,7 @@
             this.inputName.Size = new System.Drawing.Size(666, 21);
             this.inputName.TabIndex = 0;
             this.inputName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.inputName.TextChanged += new System.EventHandler(this.inputName_TextChanged);
             // 
             // panel1
             // 

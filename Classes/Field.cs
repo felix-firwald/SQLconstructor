@@ -53,6 +53,9 @@ namespace SQLconstructor.Classes
         #region Procedural
         private bool validated;
         #endregion
+        #region External
+        public FieldDataGenerator generator { get; set; }
+        #endregion
         public string name { get; private set; }
         public SQLDataType type { get; private set; }
         public bool isNull { get; private set; }

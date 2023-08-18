@@ -5,15 +5,18 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SQLconstructor.UserControls
 {
     public partial class FinalCode : UserControl
     {
+        public bool AutoUpdate = true;
         public FinalCode()
         {
             InitializeComponent();
+            AutoUpdateThis();
         }
         public void UpdateText(string onText)
         {
@@ -57,10 +60,7 @@ namespace SQLconstructor.UserControls
             "]",
         };
 
-        private void buttonUpdate_Click(object sender, System.EventArgs e)
-        {
-            AutoUpdateText();
-        }
+        
         private void UpdateColors()
         {
             this.richTextBox.SelectAll();
@@ -108,12 +108,28 @@ namespace SQLconstructor.UserControls
                 }
             }
         }
-        private void AutoUpdateText()
+        private async void AutoUpdateThis()
+        {
+            while (this.AutoUpdate)
+            {
+                await Task.Delay(500);
+                if (ListOfTables.IsNeedUpdateForCode())
+                {
+                    UpdateThis();
+                }
+            }
+            
+        }
+        private void UpdateThis()
         {
             this.UpdateText(ListOfTables.GetRequestForTables());
             UpdateColors();
         }
 
+        private void buttonUpdate_Click(object sender, System.EventArgs e)
+        {
+            UpdateThis();
+        }
         private void buttonUpdateColorize_Click(object sender, System.EventArgs e)
         {
             UpdateColors();

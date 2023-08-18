@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Database");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Database");
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.treeView = new System.Windows.Forms.TreeView();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonUpdate = new System.Windows.Forms.Button();
             this.panelBottom = new System.Windows.Forms.Panel();
             this.buttonEdit = new System.Windows.Forms.Button();
+            this.buttonUpdate = new System.Windows.Forms.Button();
             this.toolTipMain = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.panelBottom.SuspendLayout();
@@ -64,10 +64,10 @@
             this.treeView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView.Location = new System.Drawing.Point(3, 33);
             this.treeView.Name = "treeView";
-            treeNode2.Name = "Узел0";
-            treeNode2.Text = "Database";
+            treeNode1.Name = "Узел0";
+            treeNode1.Text = "Database";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
+            treeNode1});
             this.treeView.Size = new System.Drawing.Size(244, 234);
             this.treeView.TabIndex = 0;
             this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterSelect);
@@ -82,18 +82,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Обозреватель таблиц";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // buttonUpdate
-            // 
-            this.buttonUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonUpdate.Dock = System.Windows.Forms.DockStyle.Left;
-            this.buttonUpdate.Location = new System.Drawing.Point(0, 0);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(75, 24);
-            this.buttonUpdate.TabIndex = 2;
-            this.buttonUpdate.Text = "Обновить";
-            this.buttonUpdate.UseVisualStyleBackColor = true;
-            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // panelBottom
             // 
@@ -117,6 +105,18 @@
             this.buttonEdit.Text = "Редактировать";
             this.buttonEdit.UseVisualStyleBackColor = true;
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonUpdate.Dock = System.Windows.Forms.DockStyle.Left;
+            this.buttonUpdate.Location = new System.Drawing.Point(0, 0);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(75, 24);
+            this.buttonUpdate.TabIndex = 2;
+            this.buttonUpdate.Text = "Обновить";
+            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // TreeViewOfTables
             // 
