@@ -135,6 +135,7 @@
             // button4
             // 
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.Enabled = false;
             this.button4.Location = new System.Drawing.Point(7, 49);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(215, 23);
@@ -145,6 +146,7 @@
             // button3
             // 
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.Enabled = false;
             this.button3.Location = new System.Drawing.Point(7, 20);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(215, 23);
@@ -167,6 +169,7 @@
             // buttonSaveAll
             // 
             this.buttonSaveAll.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonSaveAll.Enabled = false;
             this.buttonSaveAll.Location = new System.Drawing.Point(7, 49);
             this.buttonSaveAll.Name = "buttonSaveAll";
             this.buttonSaveAll.Size = new System.Drawing.Size(215, 23);

@@ -43,7 +43,7 @@ namespace SQLconstructor.Forms
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "SQL files (.SQL)|*.sql";
-            sfd.FileName = "Database_CreateTables.sql";
+            sfd.FileName = $"{ListOfTables.Name}_CreateTables.sql";
             sfd.FilterIndex = 0;
             if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
